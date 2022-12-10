@@ -22,30 +22,34 @@ def generar_mano_del_jugador():
 
     Esta función genera la mano del jugador en la ronda, usando valores aleatorios para los palos y las cartas.
     """
+    # Posibles cartas para ambos participantes.
+    cartas = "AS", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"
+    palos = "TRÉBOL", "DIAMANTE", "CORAZÓN", "PICA"
+
     print('\nTURNO DEL JUGADOR')
     print('-' * 17)
     print('Lanzamiento de cartas:')
 
     # Generación aleatoria de los valores de las cartas.
     # Primera carta.
-    palo_1 = random.choice(PALOS)
-    carta_1 = random.choice(CARTAS)
+    palo_1 = random.choice(palos)
+    carta_1 = random.choice(cartas)
     aux_1 = carta_1
     print("- Primera carta:", carta_1, 'de', palo_1)
-    if carta_1 == J or carta_1 == Q or carta_1 == K:
+    if carta_1 == 'J' or carta_1 == 'Q' or carta_1 == 'K':
         carta_1 = 10
-    if carta_1 == AS:
+    if carta_1 == 'AS':
         carta_1 = 11
 
     # Segunda carta.
-    palo_2 = random.choice(PALOS)
-    carta_2 = random.choice(CARTAS)
+    palo_2 = random.choice(palos)
+    carta_2 = random.choice(cartas)
     print("- Segunda carta:", carta_2, 'de', palo_2)
-    if carta_2 == J or carta_2 == Q or carta_2 == K:
+    if carta_2 == 'J' or carta_2 == 'Q' or carta_2 == 'K':
         carta_2 = 10
-    if carta_2 == AS and carta_1 == 11:
+    if carta_2 == 'AS' and carta_1 == 11:
         carta_2 = 1
-    if carta_2 == AS:
+    if carta_2 == 'AS':
         carta_2 = 11
 
     # Resultado.
@@ -58,15 +62,15 @@ def generar_mano_del_jugador():
 
     if resultado_jugador <= 16:
         # Aún no ha llegado a 21, debe jugar otra carta.
-        palo_3 = random.choice(PALOS)
-        carta_3 = random.choice(CARTAS)
+        palo_3 = random.choice(palos)
+        carta_3 = random.choice(cartas)
         print("Puntaje:", resultado_jugador, "PUNTOS. Debe tirar una tercera carta...")
         print("- Tercera carta:", carta_3, 'de', palo_3)
-        if carta_3 == J or carta_3 == Q or carta_3 == K:
+        if carta_3 == 'J' or carta_3 == 'Q' or carta_3 == 'K':
             carta_3 = 10
-        if carta_3 == AS and resultado_jugador > 11:
+        if carta_3 == 'AS' and resultado_jugador > 11:
             carta_3 = 1
-        if carta_3 == AS:
+        if carta_3 == 'AS':
             carta_3 = 11
 
         # Resultado.
@@ -87,30 +91,34 @@ def generar_mano_del_crupier():
 
     Esta función genera la mano del crupier en la ronda, usando valores aleatorios para los palos y las cartas.
     """
+    # Posibles cartas para ambos participantes.
+    cartas = 'AS', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'
+    palos = "TRÉBOL", "DIAMANTE", "CORAZÓN", "PICA"
+
     print('\nTURNO DEL CRUPIER')
     print('-' * 17)
     print('Lanzamiento de cartas:')
 
     # Generación aleatoria de los valores de las cartas.
     # Primera carta.
-    palo_4 = random.choice(PALOS)
-    carta_4 = random.choice(CARTAS)
+    palo_4 = random.choice(palos)
+    carta_4 = random.choice(cartas)
     aux_4 = carta_4
     print("- Primera carta:", carta_4, 'de', palo_4)
-    if carta_4 == J or carta_4 == Q or carta_4 == K:
+    if carta_4 == 'J' or carta_4 == 'Q' or carta_4 == 'K':
         carta_4 = 10
-    if carta_4 == AS:
+    if carta_4 == 'AS':
         carta_4 = 11
 
     # Segunda carta.
-    palo_5 = random.choice(PALOS)
-    carta_5 = random.choice(CARTAS)
+    palo_5 = random.choice(palos)
+    carta_5 = random.choice(cartas)
     print("- Segunda carta:", carta_5, 'de', palo_5)
-    if carta_5 == J or carta_5 == Q or carta_5 == K:
+    if carta_5 == 'J' or carta_5 == 'Q' or carta_5 == 'K':
         carta_5 = 10
-    if carta_5 == AS and carta_4 == 11:
+    if carta_5 == 'AS' and carta_4 == 11:
         carta_5 = 1
-    if carta_5 == AS:
+    if carta_5 == 'AS':
         carta_5 = 11
 
     # Resultado.
@@ -123,15 +131,15 @@ def generar_mano_del_crupier():
 
     if resultado_crupier <= 16:
         # Debe jugar otra carta.
-        palo_6 = random.choice(PALOS)
-        carta_6 = random.choice(CARTAS)
+        palo_6 = random.choice(palos)
+        carta_6 = random.choice(cartas)
         print("El puntaje es:", resultado_crupier, "PUNTOS. Debe tirar una tercera carta...")
         print("- Tercera carta:", carta_6, 'de', palo_6)
-        if carta_6 == J or carta_6 == Q or carta_6 == K:
+        if carta_6 == 'J' or carta_6 == 'Q' or carta_6 == 'K':
             carta_6 = 10
-        if carta_6 == AS and resultado_crupier > 11:
+        if carta_6 == 'AS' and resultado_crupier > 11:
             carta_6 = 1
-        if carta_6 == AS:
+        if carta_6 == 'AS':
             carta_6 = 11
 
         # Resultado.
@@ -184,7 +192,7 @@ def comprobar_si_existe_una_figura(carta_1, carta_2, carta_4, carta_6):
     retornará el estado de "figura", que será usada más adelante.
     """
     figura = False
-    if (carta_1 or carta_2 or carta_4 or carta_6) == J or carta_6 == Q or carta_6 == K:
+    if (carta_1 or carta_2 or carta_4 or carta_6) == 'J' or carta_6 == 'Q' or carta_6 == 'K':
         figura = True
     return figura
 
@@ -219,55 +227,57 @@ def mostrar_resultados_adicionales(palo_1, palo_4, aux_1, aux_4):
             print("3. Además, tienen el mismo número o figura:", "'", aux_1, "'", sep="")
 
 
-def opcion1():
+def principal():
     """
-    Mostrar el reglamento del juego.
+    Ejecuta el script principal.
     :return: no retorna nada.
     """
-    # Se muestra el reglamento del juego.
-    reglas_de_juego.reglamento()
+    print('-' * 32)
+    print("BIENVENIDO AL JUEGO DE BLACKJACK")
+    print('-' * 32)
+
+    def opcion1():
+        """
+        Mostrar el reglamento del juego.
+        :return: no retorna nada.
+        """
+        # Se muestra el reglamento del juego.
+        reglas_de_juego.reglamento()
+
+    def opcion2():
+        """
+        Lanzar la partida.
+        :return: no retorna nada.
+
+        Esta función realiza el lanzamiento de la partida, las jugadas de ambos participantes.
+        """
+        print('\n¡COMIENZA EL JUEGO!')
+        resultado_del_jugador, aux_1, palo_1 = generar_mano_del_jugador()
+        resultado_del_crupier, aux_4, palo_4 = generar_mano_del_crupier()
+        determinar_el_ganador(resultado_del_jugador, resultado_del_crupier)
+        mostrar_resultados_adicionales(palo_1, palo_4, aux_1, aux_4)
+
+    # Diccionario con las opciones del menú de opciones del programa.
+    opciones = {
+        1: opcion1,
+        2: opcion2,
+    }
+
+    # Ciclo para controlar el menú de opciones y el flujo de ejecución.
+    while True:
+        mostrar_menu()
+        opcion = int(input('\nSu opción: '))
+
+        if opcion == 3:
+            print('\n¡GRACIAS POR JUGAR :D!')
+            print('Programa finalizado.')
+            break
+
+        if opcion in opciones:
+            opciones[opcion]()  # Opción del diccionario (si de las opciones elige la opción 1, entonces llamar a opcion1)
+        else:
+            print('\nOpción inválida.')
 
 
-def opcion2():
-    """
-    Lanzar la partida.
-    :return: no retorna nada.
-
-    Esta función realiza el lanzamiento de la partida, las jugadas de ambos participantes.
-    """
-    print('\n¡COMIENZA EL JUEGO!')
-    resultado_del_jugador, aux_1, palo_1 = generar_mano_del_jugador()
-    resultado_del_crupier, aux_4, palo_4 = generar_mano_del_crupier()
-    determinar_el_ganador(resultado_del_jugador, resultado_del_crupier)
-    mostrar_resultados_adicionales(palo_1, palo_4, aux_1, aux_4)
-
-
-print('-' * 32)
-print("BIENVENIDO AL JUEGO DE BLACKJACK")
-print('-' * 32)
-
-# Posibles cartas para ambos participantes.
-AS, J, Q, K = "AS", "J", "Q", "K"
-CARTAS = AS, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
-PALOS = "TRÉBOL", "DIAMANTE", "CORAZÓN", "PICA"
-
-# Diccionario con las opciones del menú de opciones del programa.
-opciones = {
-    1: opcion1,
-    2: opcion2,
-}
-
-# Ciclo para controlar el menú de opciones y el flujo de ejecución.
-while True:
-    mostrar_menu()
-    opcion = int(input('\nSu opción: '))
-
-    if opcion == 3:
-        print('\n¡GRACIAS POR JUGAR :D!')
-        print('Programa finalizado.')
-        break
-
-    if opcion in opciones:
-        opciones[opcion]()  # Opción del diccionario (si de las opciones elige la opción 1, entonces llamar a opcion1)
-    else:
-        print('\nOpción inválida.')
+if __name__ == '__main__':
+    principal()
